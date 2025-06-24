@@ -1,26 +1,21 @@
-
+require('dotenv').config();
 const express = require('express')
 const app = express()
 const path = require('path');
-require('dotenv').config();
+const configViewEngine = require('./config/viewEngine');
 const port = process.env.PORT || 8888;
 const hostname = process.env.HOSTNAME;
-
+const webRoutes = require('./routes/web');
 console.log("check env: ", process.env);
+
 // config template engine
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs')
+configViewEngine(app);
+
+
 
 //khai báo route
-app.get('/', (req, res) => {
-    res.send('Hello World \n Test code dung express and ronaldo \n')
-})
-
-app.get('/abc', (req, res) => {
-    //res.send('Check route abc ')
-    res.render('sample.ejs')
-})
-
+app.use('/', webRoutes);
+//app.use('/test', webRoutes);
 
 
 app.listen(port, hostname, () => {
