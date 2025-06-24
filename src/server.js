@@ -6,16 +6,24 @@ const configViewEngine = require('./config/viewEngine');
 const port = process.env.PORT || 8888;
 const hostname = process.env.HOSTNAME;
 const webRoutes = require('./routes/web');
+const connection = require('./config/database');
+
 console.log("check env: ", process.env);
+
+const mysql = require('mysql2');
+const { table } = require('console');
 
 // config template engine
 configViewEngine(app);
 
-//das
+
 
 //khai báo route
 app.use('/', webRoutes);
 //app.use('/test', webRoutes);
+
+
+
 
 
 app.listen(port, hostname, () => {
