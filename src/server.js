@@ -8,6 +8,10 @@ const hostname = process.env.HOSTNAME;
 const webRoutes = require('./routes/web');
 const connection = require('./config/database');
 
+//config req.body
+app.use(express.json()); // Used to parse JSON bodies
+app.use(express.urlencoded()); //Parse URL-encoded bodies
+
 console.log("check env: ", process.env);
 
 const mysql = require('mysql2');
@@ -21,8 +25,6 @@ configViewEngine(app);
 //khai báo route
 app.use('/', webRoutes);
 //app.use('/test', webRoutes);
-
-
 
 
 
