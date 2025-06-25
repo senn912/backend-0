@@ -10,7 +10,7 @@ const connection = require('./config/database');
 
 //config req.body
 app.use(express.json()); // Used to parse JSON bodies
-app.use(express.urlencoded()); //Parse URL-encoded bodies
+app.use(express.urlencoded()); //Parse URL-encoded bodiess
 
 console.log("check env: ", process.env);
 
