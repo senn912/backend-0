@@ -67,3 +67,9 @@ button {
     font-weight: 600;
     padding: 10;
 }
+
+.d-none {
+    display: none;
+
+}
+
